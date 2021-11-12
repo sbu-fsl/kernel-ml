@@ -33,10 +33,10 @@ KML is under development by Ibrahim Umit Akgun of the File Systems and Storage L
 
 ```bash
 # SSH
-git clone --recurse-submodules git@github.com:sbu-fsl/kml.git
+git clone --recurse-submodules git@github.com:sbu-fsl/kernel-ml.git
 
 # HTTPS
-git clone --recurse-submodules https://github.com/sbu-fsl/kml.git
+git clone --recurse-submodules https://github.com/sbu-fsl/kernel-ml.git
 ````
 
 ### Build Dependencies
@@ -77,9 +77,9 @@ cd ../..
 
 KML requires Linux kernel modifications to function. We recommend allocating at least 25 GiB of disk space before beginning the installation process.
 
-1. Navigate to the `kml/kml-linux` directory. This repository was recursively cloned during setup
+1. Navigate to the `kernel-ml/kernel-ml-linux` directory. This repository was recursively cloned during setup
     ```bash
-    cd kml-linux
+    cd kernel-ml-linux
     ```
 1. Install the following packages
     ```
@@ -104,7 +104,7 @@ KML requires Linux kernel modifications to function. We recommend allocating at 
     
 ### Specify Kernel Header Location
 
-Edit `kml/cmake/FindKernelHeaders.cmake` to specify the **absolute path** to the aforementioned `kml/kml-linux` directory. For example, if `kml-linux` lives in `/home/kml/kml-linux`:
+Edit `kernel-ml/cmake/FindKernelHeaders.cmake` to specify the **absolute path** to the aforementioned `kernel-ml/kernel-ml-linux` directory. For example, if `kernel-ml-linux` lives in `/home/kernel-ml/kernel-ml-linux`:
 
 ```cmake
 ...
@@ -112,7 +112,7 @@ Edit `kml/cmake/FindKernelHeaders.cmake` to specify the **absolute path** to the
 # Find the headers
 find_path(KERNELHEADERS_DIR
         include/linux/user.h
-        PATHS /home/kml/kml-linux
+        PATHS /home/kernel-ml/kernel-ml-linux
 )
 
 ...
