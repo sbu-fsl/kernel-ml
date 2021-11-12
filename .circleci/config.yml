@@ -1,0 +1,78 @@
+version: 2.1
+git:
+  submodules: false
+
+addons:
+  apt:
+    packages: lcov
+    update: true
+
+matrix:
+  include:
+    - os: linux
+      sources:
+        - ubuntu-toolchain-r-test
+      packages:
+        - g++-8
+      env:
+        - MATRIX_EVAL="CC=gcc-8 CXX=g++-8 GCOV=gcov-8"
+
+env:
+  global:
+   - CODECOV_TOKEN="9118d8d9-8858-4c85-b27b-491f65c76199"
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      - run:
+          name: "building dependencies"
+          command: |
+            eval "${MATRIX_EVAL}"
+            sudo apt install software-properties-common -y
+            sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+            sudo apt-get update
+            sudo apt-get install gcc-8 g++-8 lcov
+            sudo apt install linux-headers-$(uname -r)
+            sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20
+            sudo update-alternatives --config gcc
+            sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20
+            sudo update-alternatives --config g++
+            sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-8 20
+            sudo update-alternatives --config gcov
+            sudo apt install valgrind
+            sudo apt install libelf-dev
+            mkdir dependecies && cd dependecies
+            git clone https://github.com/google/benchmark.git
+            git clone https://github.com/google/googletest.git benchmark/googletest
+            cd benchmark
+            mkdir build && cd build
+            cmake -DCMAKE_BUILD_TYPE=Release ../
+            make
+            sudo make install
+            cd ../
+            cd googletest
+            mkdir build && cd build
+            cmake -DCMAKE_BUILD_TYPE=Release ../
+            make
+            sudo make install
+            cd ../../../../
+      - run:
+          name: "building & testing & benchmarking kml"
+          command: |
+            mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" .. && make
+            cp ../dataset/fio_io_scheduler_dataset.output.gz .
+            gunzip -d fio_io_scheduler_dataset.output.gz
+            mv fio_io_scheduler_dataset.output test.output
+            cp ../ml-models-analyses/readahead-per-disk/nn_arch_data/input.csv .
+            cp ../ml-models-analyses/readahead-per-disk/nn_arch_data/output.csv .
+            ctest --verbose
+            lcov --capture --directory . --output-file coverage.info
+            bash <(curl -s https://codecov.io/bash) -t 9118d8d9-8858-4c85-b27b-491f65c76199
+
+notifications:
+  email:
+    - iakgun@cs.stonybrook.edu
+    - aaydin@cs.stonybrook.edu
