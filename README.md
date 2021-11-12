@@ -124,7 +124,7 @@ find_path(KERNELHEADERS_DIR
 # Create a build directory for KML
 mkdir build
 cd build 
-cmake -DCMAKE_BUILD_TYPE=Release -DTRAVISCI=true -DCMAKE_CXX_FLAGS="-Werror" ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
 make
 ```
 
