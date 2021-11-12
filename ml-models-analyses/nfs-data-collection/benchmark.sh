@@ -18,8 +18,8 @@ case $1 in
 
   readrandom | readrandomwriterandom | mixgraph | updaterandom)
     echo -n "readcount 200000"
-    readcount=200000
-    times=15
+    readcount=20000
+    times=10
     ;;
 
   readwhilewriting)
@@ -47,9 +47,11 @@ esac
 
 for i in {1..$times}; 
 do 
+    ssh root@gr3 "free && sync && echo 3 > /proc/sys/vm/drop_caches && free"; 
     free && sync && echo 3 > /proc/sys/vm/drop_caches && free; 
-    echo $1 $i >> /tmp/detail.txt;
-    $2/db_bench --benchmarks="$1" -cache_size=268435456 -keyrange_dist_a=14.18 -keyrange_dist_b=-2.917 -keyrange_dist_c=0.0164 -keyrange_dist_d=-0.08082 -keyrange_num=30 -value_k=0.2615 -value_sigma=25.45 -iter_k=2.517 -iter_sigma=14.236 -mix_get_ratio=0.85 -mix_put_ratio=0.14 -mix_seek_ratio=0.01 -sine_mix_rate_interval_milliseconds=5000 -sine_a=1000 -sine_b=0.0000073 -sine_d=45000 --perf_level=0 -reads=$readcount -num=20000000 -key_size=48 --db=$3/rocksdb_bench --use_existing_db=true -mmap_read=true -mmap_write=true -statistics --stats_interval_seconds=1; 
+    echo $1 $i >> /tmp/detail.txt; 
+    
+    /usr/bin/time -v $2/db_bench --benchmarks="$1" -cache_size=268435456 -keyrange_dist_a=14.18 -keyrange_dist_b=-2.917 -keyrange_dist_c=0.0164 -keyrange_dist_d=-0.08082 -keyrange_num=30 -value_k=0.2615 -value_sigma=25.45 -iter_k=2.517 -iter_sigma=14.236 -mix_get_ratio=0.85 -mix_put_ratio=0.14 -mix_seek_ratio=0.01 -sine_mix_rate_interval_milliseconds=5000 -sine_a=1000 -sine_b=0.0000073 -sine_d=45000 --perf_level=0 -reads=$readcount -num=20000000 -key_size=48 --db=$3/rocksdb_bench --use_existing_db=true -mmap_read=true -mmap-write=true -statistics --stats_interval_seconds=1; 
 
     if [ "$1" = "updaterandom" ]; then
 	    ./clear_dataset.sh $3;

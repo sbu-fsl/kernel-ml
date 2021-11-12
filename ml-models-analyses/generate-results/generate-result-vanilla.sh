@@ -14,7 +14,6 @@
 
 # how to use ./generate-benchmark-data.sh device mount_point db_bench_path
 
-# for test in readseq readrandom readreverse readmissing readwhilewriting readwhilemerging readwhilescanning readrandomwriterandom updaterandom mergerandom readrandommergerandom fillseq fillrandom
 for test in readseq readrandom readreverse readrandomwriterandom updaterandom readwhilewriting mixgraph
 do
     echo $test
