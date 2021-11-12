@@ -115,7 +115,7 @@ int main(void) {
   config.learning_rate = 0.01;
   config.momentum = 0.99;
   config.num_features = n_features;
-  config.model_type = FLOAT;
+  config.model_type = DOUBLE;
   nfs_class_net *nfs_net = build_nfs_class_net(&config);
   nfs_net->state.is_training = false;
   set_weights_biases_from_file(
