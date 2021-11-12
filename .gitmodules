@@ -1,3 +1,0 @@
-[submodule "kernel-ml-linux"]
-	path = kernel-ml-linux
-	url = https://github.com/sbu-fsl/kernel-ml-linux.git
