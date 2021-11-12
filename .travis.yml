@@ -71,7 +71,7 @@ after_success:
 - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter system-files
 - lcov --list coverage.info # debug info
 # Uploading report to CodeCov
-- bash <(curl -s https://codecov.io/bash) -t 9118d8d9-8858-4c85-b27b-491f65c76199
+- bash <(curl -s https://codecov.io/bash) -t f60fe01c-a3ab-471f-9e74-fee75bccba1e
 
 notifications:
   email:
