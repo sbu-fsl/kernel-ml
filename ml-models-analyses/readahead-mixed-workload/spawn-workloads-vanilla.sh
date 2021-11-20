@@ -7,6 +7,9 @@
 # Copyright (c) 2021- Michael Arkhangelskiy
 # Copyright (c) 2020-2021 Aadil Shaikh
 # Copyright (c) 2020-2021 Lukas Velikov
+# Copyright (c) 2019- Erez Zadok
+# Copyright (c) 2019- Stony Brook University
+# Copyright (c) 2019- The Research Foundation of SUNY
 #
 # You can redistribute it and/or modify it under the terms of the Apache License, 
 # Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
