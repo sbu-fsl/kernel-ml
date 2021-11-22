@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2019- Ibrahim Umit Akgun
- * Copyright (c) 2019- Erez Zadok
- * Copyright (c) 2019- Stony Brook University
- * Copyright (c) 2019- The Research Foundation of SUNY
+ * Copyright (c) 2019-2021 Ibrahim Umit Akgun
+ * Copyright (c) 2019-2021 Erez Zadok
+ * Copyright (c) 2019-2021 Stony Brook University
+ * Copyright (c) 2019-2021 The Research Foundation of SUNY
  *
  * You can redistribute it and/or modify it under the terms of the Apache
  * License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
@@ -68,7 +68,6 @@ static u64 data_process_total = 0;
 static atomic_int data_process_count;
 static u64 inference_timing_total = 0;
 static atomic_int inference_count;
-extern uint64_t kml_total_memory_usage;
 
 #define LAST_N_SEC_OP 5
 static long last_n_sec_perf[LAST_N_SEC_OP] = {0};
@@ -138,7 +137,6 @@ int nfs_update(void *data) {
       printk("data processing took in avg.:\t %lld\n",
              data_process_total / kml_atomic_int_read(&data_process_count));
     }
-    printk("kml total memory usage:\t\t %lld\n", kml_total_memory_usage);
 #ifdef LOG_LAST_N
     printk(KERN_CONT "perf [ ");
 #endif

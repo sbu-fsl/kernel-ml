@@ -1,23 +1,21 @@
 #!/bin/bash
 
 #
-# Copyright (c) 2019- Ibrahim Umit Akgun
-# Copyright (c) 2021- Andrew Burford
-# Copyright (c) 2021- Mike McNeill
-# Copyright (c) 2021- Michael Arkhangelskiy
+# Copyright (c) 2019-2021 Ibrahim Umit Akgun
+# Copyright (c) 2021-2021 Andrew Burford
+# Copyright (c) 2021-2021 Mike McNeill
+# Copyright (c) 2021-2021 Michael Arkhangelskiy
 # Copyright (c) 2020-2021 Aadil Shaikh
 # Copyright (c) 2020-2021 Lukas Velikov
-# Copyright (c) 2019- Erez Zadok
-# Copyright (c) 2019- Stony Brook University
-# Copyright (c) 2019- The Research Foundation of SUNY
+# Copyright (c) 2019-2021 Erez Zadok
+# Copyright (c) 2019-2021 Stony Brook University
+# Copyright (c) 2019-2021 The Research Foundation of SUNY
 #
 # You can redistribute it and/or modify it under the terms of the Apache License, 
 # Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
 #
 
 # how to use ./generate-benchmark-data.sh device mount_point db_bench_path
-
-# for test in readseq readrandom readreverse readmissing readwhilewriting readwhilemerging readwhilescanning readrandomwriterandom updaterandom mergerandom readrandommergerandom fillseq fillrandom
 
 for i in 8 16 32 64 128 256 384 512 640 768 896 1024
 do

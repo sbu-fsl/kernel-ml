@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2019- Ibrahim Umit Akgun
- * Copyright (c) 2019- Erez Zadok
- * Copyright (c) 2019- Stony Brook University
- * Copyright (c) 2019- The Research Foundation of SUNY
+ * Copyright (c) 2019-2021 Ibrahim Umit Akgun
+ * Copyright (c) 2019-2021 Erez Zadok
+ * Copyright (c) 2019-2021 Stony Brook University
+ * Copyright (c) 2019-2021 The Research Foundation of SUNY
  *
  * You can redistribute it and/or modify it under the terms of the Apache
  * License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
@@ -15,9 +15,6 @@
 #define N_FEATURES 5
 #define N_SECONDS_TRAINING 1442
 #define N_ITERATIONS 1000
-/* static const int readahead_test_list[22] = { */
-/*     1,   2,   4,   8,   16,  32,  64,  128, 192, 256, 320, */
-/*     384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1024}; */
 static const int readahead_test_list[12] = {8,   16,  32,  64,  128, 256,
                                             384, 512, 640, 768, 896, 1024};
 static const char workload_names[4][25] = {

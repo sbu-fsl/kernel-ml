@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2019- Ibrahim Umit Akgun
+ * Copyright (c) 2019-2021 Ibrahim Umit Akgun
  * Copyright (c) 2019-2021 Ali Selman Aydin
- * Copyright (c) 2019- Erez Zadok
- * Copyright (c) 2019- Stony Brook University
- * Copyright (c) 2019- The Research Foundation of SUNY
+ * Copyright (c) 2019-2021 Erez Zadok
+ * Copyright (c) 2019-2021 Stony Brook University
+ * Copyright (c) 2019-2021 The Research Foundation of SUNY
  *
  * You can redistribute it and/or modify it under the terms of the Apache
  * License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
@@ -11,7 +11,6 @@
 
 #include <kml_lib.h>
 #include <matrix.h>
-// #include <math.h>
 
 #ifdef abs
 #undef abs
@@ -28,7 +27,6 @@ float fast_sqrt_f(float x) {
   r = r * (1.5f - 0.5f * x * r * r);
   r = r * (1.5f - 0.5f * x * r * r);
   return r * x;
-  // return sqrtf(x);
 }
 
 double fast_sqrt_d(double x) {
@@ -42,7 +40,6 @@ double fast_sqrt_d(double x) {
   r = r * (1.5f - 0.5f * x * r * r);
   r = r * (1.5f - 0.5f * x * r * r);
   return r * x;
-  // return sqrtf(x);
 }
 
 // x ^ y
@@ -121,14 +118,12 @@ float exp_hybrid(float x) {
   float e = 2.7182818284590;
   float result = power(e, ((int)x));
   return exp_taylor(x - ((int)x), 10) * result;
-  // return expf(x);
 }
 
 double exp_hybrid_d(double x) {
   double e = 2.7182818284590;
   double result = power_d(e, ((int)x));
   return exp_taylor_d(x - ((int)x), 20) * result;
-  // return expf(x);
 }
 
 /*
