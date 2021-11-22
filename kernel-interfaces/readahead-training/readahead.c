@@ -455,7 +455,7 @@ void readahead_add_to_page_cache(struct page *page) {
 
   data_process_start = kml_get_current_time();
   if (readahead_data_processing(data, (readahead_net *)readahead,
-                                current_readahead_val, true, false)) {
+                                current_readahead_val, true, false, i_ino)) {
   }
   data_process_end = kml_get_current_time();
 
@@ -495,7 +495,7 @@ void readahead_mm_filemap_fsl_read(struct page *page) {
 
   data_process_start = kml_get_current_time();
   if (readahead_data_processing(data, (readahead_net *)readahead,
-                                current_readahead_val, true, false)) {
+                                current_readahead_val, true, false, i_ino)) {
   }
   data_process_end = kml_get_current_time();
 
@@ -536,7 +536,7 @@ void readahead_fsl_writeback_dirty_page(struct page *page,
 
   data_process_start = kml_get_current_time();
   if (readahead_data_processing(data, (readahead_net *)readahead,
-                                current_readahead_val, true, false)) {
+                                current_readahead_val, true, false, i_ino)) {
   }
   data_process_end = kml_get_current_time();
 
