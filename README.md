@@ -4,7 +4,6 @@
 
 # KML: A Machine Learning Framework for Operating Systems & Storage Systems
 
-[![Build Status](https://app.travis-ci.com/sbu-fsl/kernel-ml.svg?token=ALVmj9qYKSFZ9q3q9Fus&branch=main)](https://app.travis-ci.com/sbu-fsl/kernel-ml)
 [![CircleCI](https://circleci.com/gh/sbu-fsl/kernel-ml/tree/main.svg?style=svg&circle-token=fc045b4ae0ae1cdb693a9e6b3f8dfda1aace460f)](https://circleci.com/gh/sbu-fsl/kernel-ml/tree/main)
 [![codecov](https://codecov.io/gh/sbu-fsl/kernel-ml/branch/main/graph/badge.svg?token=NTTV1TCRN9)](https://codecov.io/gh/sbu-fsl/kernel-ml)
 
