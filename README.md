@@ -12,6 +12,7 @@ Storage systems and their OS components are designed to accommodate a wide varie
 For more information on the KML project, please see our papers 
 - [A Machine Learning Framework to Improve Storage System Performance](https://dl.acm.org/doi/10.1145/3465332.3470875)
 - [KML: Using Machine Learning to Improve Storage Systems](https://www.fsl.cs.sunysb.edu/docs/kml/kml-tr-fsl-21-02.pdf)
+- [KML: Using Machine Learning to Improve Storage Systems (Arxiv)](https://arxiv.org/abs/2111.11554)
 
 KML is under development by Ibrahim Umit Akgun of the File Systems and Storage Lab (FSL) at Stony Brook University under Professor Erez Zadok.
 
