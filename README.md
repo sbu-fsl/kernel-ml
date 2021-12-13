@@ -144,6 +144,7 @@ ctest --verbose
 
 ## API
 Developers can find the kernel-ml development API in ```include/kml_lib.h``` header file.
+All other application related APIs are also placed in ```include``` directory (e.g. ```sgd_optimizer.h, layers.h, loss.h```)
 
 ## Example
 
