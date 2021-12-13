@@ -27,6 +27,7 @@ KML is under development by Ibrahim Umit Akgun of the File Systems and Storage L
   - [Double Check](#Double-Check)
 - [Example](#Example)
 - [Design](#Design)
+  - [API](#API)
 - [Citing KML](#Citing-KML)
 
 ## Setup
@@ -140,6 +141,9 @@ ctest --verbose
 
 ## Design
 ![kernel-design](docs/images/arch-online-kernel.jpg) 
+
+## API
+Developers can find the kernel-ml development API in ```include/kml_lib.h``` header file.
 
 ## Example
 
